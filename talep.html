@@ -3,174 +3,280 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Talep Oluştur | Doruk Mühendislik</title>
-<meta name="description" content="Gaz açım, cihaz açım ve ücretsiz keşif taleplerinizi online iletin.">
-<style>
-  :root{--mavi:#0b3d91;--mavi2:#1565c0;--turuncu:#ff7a00;--acik:#f4f7fb;--yazi:#1c2733;--gri:#5b6b7b;--cizgi:#d5dee9}
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--yazi);line-height:1.55;background:var(--acik)}
-  a{color:inherit;text-decoration:none}
-  .kap{max-width:760px;margin:0 auto;padding:0 18px}
-  header{background:#fff;border-bottom:1px solid #e3e9f0}
-  .ust{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:1080px;margin:0 auto;padding:0 18px}
-  .logo{font-weight:800;font-size:1.15rem;color:var(--mavi)}
-  .logo span{color:var(--turuncu)}
-  .geri{color:var(--gri);font-size:.95rem}
-  .geri:hover{color:var(--mavi)}
-  h1{font-size:1.7rem;color:var(--mavi);margin:30px 0 6px}
-  .alt{color:var(--gri);margin-bottom:20px}
-  .sekmeler{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
-  .sekme{border:1px solid var(--cizgi);background:#fff;border-radius:10px;padding:12px 8px;font:inherit;font-weight:700;font-size:.92rem;color:var(--gri);cursor:pointer}
-  .sekme.aktif{background:var(--mavi2);border-color:var(--mavi2);color:#fff}
-  .kutu{background:#fff;border:1px solid var(--cizgi);border-radius:14px;padding:22px;margin-bottom:40px}
-  .aciklama{background:#eef4fd;border-radius:10px;padding:12px 14px;color:#27456f;font-size:.93rem;margin-bottom:18px}
-  label{display:block;font-weight:600;font-size:.92rem;margin-bottom:5px}
-  label small{font-weight:400;color:var(--gri)}
-  input[type=text],input[type=tel],textarea{width:100%;font:inherit;padding:11px 12px;border:1px solid var(--cizgi);border-radius:8px;background:#fff;color:var(--yazi)}
-  input:focus,textarea:focus{outline:2px solid var(--mavi2);outline-offset:0;border-color:var(--mavi2)}
-  textarea{min-height:90px;resize:vertical}
-  .alan{margin-bottom:16px}
-  .iki{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  .onay{display:flex;gap:10px;align-items:flex-start;font-size:.86rem;color:var(--gri);margin:6px 0 18px}
-  .onay input{margin-top:3px}
-  .gonder{width:100%;border:0;background:var(--turuncu);color:#fff;font:inherit;font-weight:700;padding:14px;border-radius:10px;cursor:pointer;font-size:1rem}
-  .gonder:disabled{opacity:.6;cursor:wait}
-  .hata{background:#fdecea;color:#a1271c;border-radius:8px;padding:10px 12px;margin-bottom:14px;font-size:.92rem;display:none}
-  .tamam{text-align:center;padding:26px 8px}
-  .tamam h2{color:var(--mavi);margin-bottom:8px}
-  .tamam p{color:var(--gri);margin-bottom:16px}
-  .btn{display:inline-block;padding:12px 22px;border-radius:8px;font-weight:700;background:var(--mavi2);color:#fff}
-  .bal{position:absolute;left:-9999px;opacity:0}
-  @media(max-width:560px){.iki{grid-template-columns:1fr}.sekme{font-size:.82rem}}
-</style>
+<title>Talep oluştur | Doruk Mühendislik</title>
+<meta name="description" content="Gaz açım, cihaz açım veya ücretsiz keşif talebinizi bırakın. Sizi arayıp uygun günü birlikte belirleyelim.">
+<meta name="theme-color" content="#FFD21F">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="stil.css">
 </head>
 <body>
-<header>
-  <div class="ust">
-    <a class="logo" href="index.html">DORUK <span>Mühendislik</span></a>
-    <a class="geri" href="index.html">← Ana sayfa</a>
+<a class="skip" href="#icerik">İçeriğe geç</a>
+
+<div class="tape">
+  <div class="wrap">
+    <span class="durum" data-durum data-acik="0">Çalışma saatleri</span>
+    <span class="tape-r"><a class="tape-tel" data-tel data-tel-yazi href="tel:+905302723719">0530 272 37 19</a></span>
+  </div>
+</div>
+
+<header class="hd">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="Doruk Mühendislik ana sayfa">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" fill="#FFD21F"/><path d="M9 25V7h6.5a9 9 0 0 1 0 18Z" fill="none" stroke="#1C2124" stroke-width="3.6"/></svg>
+      <span><b>DORUK</b><small>Mühendislik</small></span>
+    </a>
+    <nav class="nav" id="menu" aria-label="Ana menü">
+      <a class="nl" href="index.html#hizmetler">Hizmetler</a>
+      <a class="nl" href="index.html#surec">Süreç</a>
+      <a class="nl" href="index.html#program">Program</a>
+      <a class="nl" href="index.html#sss">Sorular</a>
+      <a class="nl" href="index.html#iletisim">İletişim</a>
+      <a class="btn btn-k nav-cta" href="talep.html" aria-current="page">Talep oluştur</a>
+    </nav>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menü"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<main class="kap">
-  <h1>Talep Oluştur</h1>
-  <p class="alt">Formu doldurun, ekibimiz en kısa sürede sizi arasın.</p>
+<main id="icerik">
+  <section class="page-h">
+    <div class="wrap">
+      <h1>Talep oluşturun</h1>
+      <p class="lead">Formu doldurun, sizi arayıp uygun günü birlikte belirleyelim.</p>
+    </div>
+  </section>
 
-  <div class="sekmeler" id="sekmeler"></div>
+  <div class="wrap talep">
+    <div class="card-f" id="kart">
+      <form id="form" novalidate>
+        <div class="tur" role="radiogroup" aria-label="Talep türü">
+          <label data-k="gaz"><input type="radio" name="tur" value="gaz"><b>Gaz açım</b><span>Abonelik tamamlandı, gaz açılsın</span></label>
+          <label data-k="cihaz"><input type="radio" name="tur" value="cihaz"><b>Cihaz açım</b><span>Kombi, ocak veya şofben devreye alınsın</span></label>
+          <label data-k="kesif"><input type="radio" name="tur" value="kesif"><b>Ücretsiz keşif</b><span>Proje ve tesisat için sahada inceleme</span></label>
+        </div>
 
-  <div class="kutu" id="kutu">
-    <div class="aciklama" id="aciklama"></div>
-    <div class="hata" id="hata"></div>
-    <form id="form" novalidate>
-      <div class="bal"><label>Web <input type="text" name="web" tabindex="-1" autocomplete="off"></label></div>
-      <div class="alan">
-        <label for="ad">Ad Soyad</label>
-        <input type="text" id="ad" name="ad" autocomplete="name" maxlength="100">
-      </div>
-      <div class="iki">
-        <div class="alan">
-          <label for="tesisat">Tesisat No <small id="tesisatNot"></small></label>
-          <input type="text" id="tesisat" name="tesisat" inputmode="numeric" maxlength="30">
+        <div class="fg">
+          <div class="bal" aria-hidden="true"><label>Web sitesi <input type="text" name="web" tabindex="-1" autocomplete="off"></label></div>
+          <div class="alert" id="alert" role="alert" hidden></div>
+
+          <div class="fld">
+            <label for="ad">Ad soyad</label>
+            <input type="text" id="ad" name="ad" autocomplete="name" maxlength="100" aria-describedby="e-ad">
+            <p class="err" id="e-ad"></p>
+          </div>
+
+          <div class="fld">
+            <label for="tel">Telefon</label>
+            <input type="tel" id="tel" name="tel" autocomplete="tel" inputmode="tel" placeholder="05xx xxx xx xx" maxlength="14" aria-describedby="e-tel">
+            <p class="err" id="e-tel"></p>
+          </div>
+
+          <div class="f2">
+            <div class="fld">
+              <label for="tesisat">Tesisat numarası <span class="hint" id="h-tes"></span></label>
+              <input type="text" id="tesisat" name="tesisat" inputmode="numeric" maxlength="30" aria-describedby="e-tesisat">
+              <p class="err" id="e-tesisat"></p>
+            </div>
+            <div class="fld">
+              <label for="sozlesme">Sözleşme numarası <span class="hint" id="h-soz"></span></label>
+              <input type="text" id="sozlesme" name="sozlesme" inputmode="numeric" maxlength="30" aria-describedby="e-sozlesme">
+              <p class="err" id="e-sozlesme"></p>
+            </div>
+          </div>
+
+          <div class="fld">
+            <label for="adres">Adres <span class="hint">Mahalle, sokak ve kapı numarasıyla birlikte.</span></label>
+            <textarea id="adres" name="adres" autocomplete="street-address" maxlength="400" aria-describedby="e-adres"></textarea>
+            <p class="err" id="e-adres"></p>
+          </div>
+
+          <div>
+            <label class="chk"><input type="checkbox" id="kvkk" aria-describedby="e-kvkk"><span>Bilgilerimin talebimi değerlendirmek ve beni aramak için kullanılmasını kabul ediyorum. <a href="gizlilik.html" target="_blank" rel="noopener">Gizlilik ve KVKK metni</a></span></label>
+            <p class="err" id="e-kvkk"></p>
+          </div>
+
+          <div class="acts">
+            <button class="btn btn-k" type="submit" id="gonder">Talebi gönder</button>
+            <button class="btn btn-o" type="button" id="wp">WhatsApp ile gönder</button>
+          </div>
         </div>
-        <div class="alan">
-          <label for="sozlesme">Sözleşme No <small id="sozlesmeNot"></small></label>
-          <input type="text" id="sozlesme" name="sozlesme" inputmode="numeric" maxlength="30">
-        </div>
+      </form>
+    </div>
+
+    <aside class="aside" aria-label="Süreç">
+      <h2>Sonra ne olur?</h2>
+      <ol>
+        <li><span><b>Talebiniz bize ulaşır</b>Bilgileriniz ekibimize iletilir.</span></li>
+        <li><span><b>Sizi arıyoruz</b>Bilgileri doğrular, uygun günü birlikte belirleriz.</span></li>
+        <li><span><b>Ekibimiz gelir</b>Randevu gününde ekibimiz adresinizde olur.</span></li>
+      </ol>
+      <div class="ph">
+        <a data-tel data-tel-yazi href="tel:+905302723719">0530 272 37 19</a>
+        <small>Form yerine aramayı tercih ederseniz bu numaradan ulaşabilirsiniz.</small>
       </div>
-      <div class="alan">
-        <label for="tel">Telefon No</label>
-        <input type="tel" id="tel" name="tel" autocomplete="tel" inputmode="tel" placeholder="05xx xxx xx xx" maxlength="20">
-      </div>
-      <div class="alan">
-        <label for="adres">Adres</label>
-        <textarea id="adres" name="adres" autocomplete="street-address" maxlength="400" placeholder="Mahalle, cadde/sokak, bina ve daire no, ilçe"></textarea>
-      </div>
-      <label class="onay">
-        <input type="checkbox" id="kvkk">
-        <span>Bilgilerimin yalnızca talebimin değerlendirilmesi ve tarafımla iletişim kurulması amacıyla işlenmesini kabul ediyorum.</span>
-      </label>
-      <button class="gonder" id="gonder" type="submit">Talebi Gönder</button>
-    </form>
+      <p style="margin-top:22px;border-top:2px solid var(--ink);padding-top:16px"><b>Gaz kokusu alırsanız</b> formu beklemeyin. Ateş yakmayın, elektrik düğmelerine dokunmayın, pencereleri açıp binadan çıkın ve dışarıdan 187'yi arayın.</p>
+    </aside>
   </div>
 </main>
 
+<footer class="ft">
+  <div class="hz" aria-hidden="true"></div>
+  <div class="ft-alt"><div class="wrap" style="display:flex;padding-block:22px"><span>© <span data-yil></span> <span data-firma></span></span><span><a href="index.html">Ana sayfa</a> · <a href="gizlilik.html">Gizlilik ve KVKK</a></span></div></div>
+</footer>
+
+<nav class="mbar" aria-label="Hızlı işlemler">
+  <a class="m1" data-tel href="tel:+905302723719">Ara</a>
+  <a class="m2" data-wp href="#">WhatsApp</a>
+  <a class="m3" href="index.html">Ana sayfa</a>
+</nav>
+
 <script src="ayar.js"></script>
+<script src="ortak.js"></script>
 <script>
-const TURLER = {
-  gaz:   {kod:"gaz_acim",   ad:"Gaz Açım Talebi",
-          aciklama:"Doğalgaz aboneliğiniz tamamlandıysa gaz açım işlemi için talebinizi bırakın. Tesisat ve sözleşme numaranız faturada ve abonelik evrakında yer alır.",
-          no:true},
-  cihaz: {kod:"cihaz_acim", ad:"Cihaz Açım Talebi",
-          aciklama:"Kombi, ocak vb. cihazlarınızın devreye alınması için talep oluşturun. Tesisat ve sözleşme numaranız gereklidir.",
-          no:true},
-  kesif: {kod:"kesif",      ad:"Ücretsiz Keşif Talebi",
-          aciklama:"Projeniz için sahada ücretsiz keşif talep edin. Tesisat ve sözleşme numaranız varsa yazın, yoksa boş bırakabilirsiniz.",
-          no:false}
-};
-let aktif = "gaz";
-const q = id => document.getElementById(id);
+(function () {
+  "use strict";
+  var A = window.AYAR, D = window.DORUK;
+  var TUR = {
+    gaz:   { kod: "gaz_acim",   ad: "Gaz açım",       no: true },
+    cihaz: { kod: "cihaz_acim", ad: "Cihaz açım",     no: true },
+    kesif: { kod: "kesif",      ad: "Ücretsiz keşif", no: false }
+  };
+  var aktif = "gaz";
+  function $(id) { return document.getElementById(id); }
+  var form = $("form");
 
-function sekmeleriCiz(){
-  q("sekmeler").innerHTML = Object.keys(TURLER).map(k =>
-    `<button type="button" class="sekme ${k===aktif?"aktif":""}" data-k="${k}">${TURLER[k].ad}</button>`).join("");
-  q("sekmeler").querySelectorAll("button").forEach(b => b.onclick = () => sec(b.dataset.k));
-}
-function sec(k){
-  aktif = k;
-  const t = TURLER[k];
-  q("aciklama").textContent = t.aciklama;
-  q("tesisatNot").textContent = t.no ? "" : "(varsa)";
-  q("sozlesmeNot").textContent = t.no ? "" : "(varsa)";
-  q("hata").style.display = "none";
-  sekmeleriCiz();
-  history.replaceState(null, "", "?tur=" + k);
-}
-const ilk = new URLSearchParams(location.search).get("tur");
-sec(TURLER[ilk] ? ilk : "gaz");
-
-function hataGoster(m){ const h = q("hata"); h.textContent = m; h.style.display = "block"; h.scrollIntoView({block:"nearest"}); }
-
-q("form").addEventListener("submit", async e => {
-  e.preventDefault();
-  if (q("form").web.value) return;            // spam tuzağı
-  const t = TURLER[aktif];
-  const ad = q("ad").value.trim(), tes = q("tesisat").value.trim(), soz = q("sozlesme").value.trim();
-  const tel = q("tel").value.replace(/[^\d+]/g, ""), adres = q("adres").value.trim();
-
-  if (ad.length < 2) return hataGoster("Lütfen ad soyad girin.");
-  if (t.no && !tes) return hataGoster("Lütfen tesisat numaranızı girin.");
-  if (t.no && !soz) return hataGoster("Lütfen sözleşme numaranızı girin.");
-  if (tel.replace(/\D/g, "").length < 10) return hataGoster("Lütfen geçerli bir telefon numarası girin.");
-  if (adres.length < 5) return hataGoster("Lütfen adresinizi girin.");
-  if (!q("kvkk").checked) return hataGoster("Devam etmek için onay kutusunu işaretleyin.");
-
-  try{
-    const son = Number(localStorage.getItem("sonTalep") || 0);
-    if (Date.now() - son < 30000) return hataGoster("Lütfen birkaç saniye bekleyip tekrar deneyin.");
-  }catch(_){}
-
-  if (!AYAR.supabaseUrl || !AYAR.supabaseAnahtar)
-    return hataGoster("Online talep sistemi şu an hazır değil. Lütfen bizi arayın: " + AYAR.telefon);
-
-  const btn = q("gonder");
-  btn.disabled = true; btn.textContent = "Gönderiliyor...";
-  try{
-    const basliklar = {"Content-Type":"application/json", "apikey":AYAR.supabaseAnahtar, "Prefer":"return=minimal"};
-    if (AYAR.supabaseAnahtar.startsWith("eyJ")) basliklar["Authorization"] = "Bearer " + AYAR.supabaseAnahtar;
-    const r = await fetch(AYAR.supabaseUrl.replace(/\/$/, "") + "/rest/v1/talepler", {
-      method:"POST", headers:basliklar,
-      body: JSON.stringify({tur:t.kod, ad_soyad:ad, tesisat_no:tes || null, sozlesme_no:soz || null, adres:adres, telefon:tel})
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
     });
-    if (!r.ok) throw new Error("HTTP " + r.status);
-    try{ localStorage.setItem("sonTalep", String(Date.now())); }catch(_){}
-    q("kutu").innerHTML = `<div class="tamam"><h2>Talebiniz alındı ✓</h2>
-      <p>${t.ad} bize ulaştı. En kısa sürede <b>${tel}</b> numarasından sizi arayacağız.</p>
-      <a class="btn" href="index.html">Ana sayfaya dön</a></div>`;
-  }catch(err){
-    hataGoster("Talep gönderilemedi. Lütfen tekrar deneyin ya da bizi arayın: " + AYAR.telefon);
-    btn.disabled = false; btn.textContent = "Talebi Gönder";
   }
-});
+
+  function sec(k) {
+    aktif = k;
+    Array.prototype.forEach.call(document.querySelectorAll(".tur label"), function (l) {
+      var on = l.getAttribute("data-k") === k;
+      l.classList.toggle("on", on);
+      l.querySelector("input").checked = on;
+    });
+    var zorunlu = TUR[k].no;
+    $("h-tes").textContent = zorunlu ? "Doğalgaz faturanızda yazar." : "Varsa yazın.";
+    $("h-soz").textContent = zorunlu ? "Abonelik evrakınızda yazar." : "Varsa yazın.";
+    try { history.replaceState(null, "", "?tur=" + k); } catch (e) {}
+  }
+  Array.prototype.forEach.call(document.querySelectorAll(".tur input"), function (i) {
+    i.addEventListener("change", function () { sec(i.value); });
+  });
+  var ilk = new URLSearchParams(location.search).get("tur");
+  sec(TUR[ilk] ? ilk : "gaz");
+
+  /* telefon: 0530 272 37 19 biçiminde yazılır */
+  $("tel").addEventListener("input", function () {
+    var d = this.value.replace(/\D/g, "").slice(0, 11), p = [];
+    if (d.length > 0) p.push(d.slice(0, 4));
+    if (d.length > 4) p.push(d.slice(4, 7));
+    if (d.length > 7) p.push(d.slice(7, 9));
+    if (d.length > 9) p.push(d.slice(9, 11));
+    this.value = p.join(" ");
+  });
+  function telNorm(v) {
+    var d = String(v).replace(/\D/g, "");
+    if (d.length === 12 && d.indexOf("90") === 0) d = "0" + d.slice(2);
+    if (d.length === 10 && d.charAt(0) === "5") d = "0" + d;
+    return (d.length === 11 && d.indexOf("05") === 0) ? d : "";
+  }
+
+  function hataYaz(id, msg) {
+    var e = $("e-" + id), f = $(id);
+    e.textContent = msg || "";
+    if (f && f.type !== "checkbox") { if (msg) f.setAttribute("aria-invalid", "true"); else f.removeAttribute("aria-invalid"); }
+  }
+  function dogrula() {
+    var t = TUR[aktif], hatalar = [];
+    var v = {
+      ad: $("ad").value.trim(), tel: telNorm($("tel").value),
+      tesisat: $("tesisat").value.trim(), sozlesme: $("sozlesme").value.trim(), adres: $("adres").value.trim()
+    };
+    ["ad", "tel", "tesisat", "sozlesme", "adres", "kvkk"].forEach(function (k) { hataYaz(k, ""); });
+    function ekle(id, msg) { hatalar.push(id); hataYaz(id, msg); }
+    if (v.ad.length < 2) ekle("ad", "Adınızı ve soyadınızı yazın.");
+    if (!v.tel) ekle("tel", "Telefonu 05xx xxx xx xx biçiminde yazın.");
+    if (t.no && !v.tesisat) ekle("tesisat", "Tesisat numaranızı yazın. Doğalgaz faturanızda bulunur.");
+    if (t.no && !v.sozlesme) ekle("sozlesme", "Sözleşme numaranızı yazın. Abonelik evrakınızda bulunur.");
+    if (v.adres.length < 5) ekle("adres", "Adresinizi kapı numarasıyla yazın.");
+    if (!$("kvkk").checked) ekle("kvkk", "Devam etmek için onay kutusunu işaretleyin.");
+    if (hatalar.length) { var f = $(hatalar[0]); if (f) f.focus(); return null; }
+    return v;
+  }
+
+  function uyari(html) { var a = $("alert"); a.innerHTML = html; a.hidden = !html; }
+
+  function wpLink(v) {
+    var m = "Merhaba, " + TUR[aktif].ad + " talebi oluşturmak istiyorum.\n" +
+      "Ad soyad: " + v.ad + "\nTelefon: " + v.tel +
+      (v.tesisat ? "\nTesisat no: " + v.tesisat : "") + (v.sozlesme ? "\nSözleşme no: " + v.sozlesme : "") +
+      "\nAdres: " + v.adres;
+    return "https://wa.me/" + A.whatsapp + "?text=" + encodeURIComponent(m);
+  }
+
+  $("wp").addEventListener("click", function () {
+    var v = dogrula();
+    if (!v) return;
+    window.open(wpLink(v), "_blank", "noopener");
+  });
+
+  function basari(v) {
+    var t = TUR[aktif];
+    $("kart").innerHTML =
+      '<div class="done" role="status">' +
+      '<svg class="ok-ic" viewBox="0 0 72 72" fill="none" aria-hidden="true"><rect x="2" y="2" width="68" height="68" fill="#FFD21F" stroke="#1C2124" stroke-width="3"/><path pathLength="1" d="M20 37l11 11 22-24" stroke="#1C2124" stroke-width="6" stroke-linecap="square"/></svg>' +
+      "<h2>Talebiniz bize ulaştı</h2>" +
+      "<p>Sizi " + esc(v.tel.replace(/^(\d{4})(\d{3})(\d{2})(\d{2})$/, "$1 $2 $3 $4")) + " numarasından arayıp uygun günü birlikte belirleyeceğiz.</p>" +
+      '<dl class="sum"><div><dt>Talep</dt><dd>' + esc(t.ad) + "</dd></div><div><dt>Ad soyad</dt><dd>" + esc(v.ad) + "</dd></div></dl>" +
+      '<div class="acts"><a class="btn btn-k" href="index.html">Ana sayfaya dön</a><a class="btn btn-o" href="talep.html?tur=' + esc(aktif) + '">Yeni talep oluştur</a></div></div>';
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    uyari("");
+    if (form.web.value) return;                       // spam tuzağı
+    var v = dogrula();
+    if (!v) return;
+
+    try {
+      var son = Number(localStorage.getItem("sonTalep") || 0);
+      if (Date.now() - son < 30000) { uyari("Az önce bir talep gönderdiniz. Birkaç saniye bekleyip yeniden deneyin."); return; }
+    } catch (x) {}
+
+    var telLink = '<a href="tel:' + D.telHam() + '">' + esc(A.telefon) + "</a>";
+    if (!A.supabaseUrl || !A.supabaseAnahtar) {
+      uyari("Online talep şu an alınamıyor. " + telLink + " numarasını arayın ya da WhatsApp ile gönderin.");
+      return;
+    }
+
+    var btn = $("gonder");
+    btn.disabled = true; btn.textContent = "Gönderiliyor";
+    var h = { "Content-Type": "application/json", "apikey": A.supabaseAnahtar, "Prefer": "return=minimal" };
+    if (A.supabaseAnahtar.indexOf("eyJ") === 0) h["Authorization"] = "Bearer " + A.supabaseAnahtar;
+
+    fetch(A.supabaseUrl.replace(/\/$/, "") + "/rest/v1/talepler", {
+      method: "POST", headers: h,
+      body: JSON.stringify({
+        tur: TUR[aktif].kod, ad_soyad: v.ad, tesisat_no: v.tesisat || null,
+        sozlesme_no: v.sozlesme || null, adres: v.adres, telefon: v.tel
+      })
+    }).then(function (r) {
+      if (!r.ok) throw new Error("http " + r.status);
+      try { localStorage.setItem("sonTalep", String(Date.now())); } catch (x) {}
+      basari(v);
+    }).catch(function () {
+      uyari("Talep gönderilemedi. Bağlantınızı kontrol edip yeniden deneyin, ya da " + telLink + " numarasını arayın veya WhatsApp ile gönderin.");
+      btn.disabled = false; btn.textContent = "Talebi gönder";
+    });
+  });
+})();
 </script>
 </body>
 </html>
