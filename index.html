@@ -310,7 +310,7 @@
         elListe.innerHTML = gunluk.map(function (r) {
           var b = basla(r).getTime(), suruyor = b <= simdi && b + sure > simdi;
           return '<article class="pr"><time datetime="' + esc(r.tarih + "T" + r.saat) + '">' + esc(r.saat) + "</time>" +
-            "<div><h3>" + esc(r.hizmet) + '</h3><p class="ar">' + esc(r.bolge) + "</p></div>" +
+            "<div><h3>" + esc(r.hizmet || "Randevu") + '</h3><p class="ar">' + esc(r.bolge) + "</p></div>" +
             '<div class="kim"><span>' + esc(r.isim) + "</span>" + (suruyor ? '<em class="now" style="font-style:normal">Devam ediyor</em>' : "") + "</div></article>";
         }).join("");
       }
