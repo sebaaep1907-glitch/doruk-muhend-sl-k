@@ -1,5 +1,5 @@
 {
-  "guncelleme": "18.11.2026 22:33",
+  "guncelleme": "18.11.2026 22:34",
   "randevular": [
     {
       "tarih": "2026-11-20",
@@ -42,6 +42,13 @@
       "hizmet": "Diğer",
       "bolge": "BAŞİSKELE",
       "isim": "A. 6. D."
+    },
+    {
+      "tarih": "2026-11-20",
+      "saat": "12:15",
+      "hizmet": "Diğer",
+      "bolge": "BAŞİSKELE",
+      "isim": "A. 3. D."
     }
   ]
 }
