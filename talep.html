@@ -70,7 +70,7 @@
 
           <div class="fld">
             <label for="tel">Telefon</label>
-            <input type="tel" id="tel" name="tel" autocomplete="tel" inputmode="tel" placeholder="05xx xxx xx xx" maxlength="14" aria-describedby="e-tel">
+            <input type="tel" id="tel" name="tel" autocomplete="tel" inputmode="tel" placeholder="05xx xxx xx xx" maxlength="30" aria-describedby="e-tel">
             <p class="err" id="e-tel"></p>
           </div>
 
@@ -174,6 +174,7 @@
 
   /* telefon: 0530 272 37 19 biçiminde yazılır */
   $("tel").addEventListener("input", function () {
+    if (/[^\d\s]/.test(this.value)) return;
     var d = this.value.replace(/\D/g, "").slice(0, 11), p = [];
     if (d.length > 0) p.push(d.slice(0, 4));
     if (d.length > 4) p.push(d.slice(4, 7));
@@ -185,7 +186,8 @@
     var d = String(v).replace(/\D/g, "");
     if (d.length === 12 && d.indexOf("90") === 0) d = "0" + d.slice(2);
     if (d.length === 10 && d.charAt(0) === "5") d = "0" + d;
-    return (d.length === 11 && d.indexOf("05") === 0) ? d : "";
+    if (d.length === 11 && d.indexOf("05") === 0) return d;
+    return String(v).trim().slice(0, 40);
   }
 
   function hataYaz(id, msg) {
@@ -202,7 +204,7 @@
     ["ad", "tel", "tesisat", "sozlesme", "adres", "kvkk"].forEach(function (k) { hataYaz(k, ""); });
     function ekle(id, msg) { hatalar.push(id); hataYaz(id, msg); }
     if (v.ad.length < 2) ekle("ad", "Adınızı ve soyadınızı yazın.");
-    if (!v.tel) ekle("tel", "Telefonu 05xx xxx xx xx biçiminde yazın.");
+    if (!v.tel) ekle("tel", "Telefon numaranızı yazın.");
     if (t.no && !v.tesisat) ekle("tesisat", "Tesisat numaranızı yazın. Doğalgaz faturanızda bulunur.");
     if (t.no && !v.sozlesme) ekle("sozlesme", "Sözleşme numaranızı yazın. Abonelik evrakınızda bulunur.");
     if (v.adres.length < 5) ekle("adres", "Adresinizi kapı numarasıyla yazın.");

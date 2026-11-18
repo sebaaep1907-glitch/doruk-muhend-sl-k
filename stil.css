@@ -87,8 +87,8 @@ ul,ol{padding:0;list-style:none}
 
 /* ---------- ana sayfa girişi ---------- */
 .hero{background-color:var(--bg2);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:32px 32px;border-bottom:2px solid var(--line)}
-.hero .wrap{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:clamp(32px,5vw,80px);align-items:start;padding-block:clamp(40px,6vw,96px)}
-.hero h1{font:800 clamp(2.9rem,6.6vw,5.8rem)/.95 var(--f-d);letter-spacing:-.005em}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(32px,5vw,80px);align-items:start;padding-block:clamp(40px,6vw,96px)}
+.hero h1{max-width:17ch;font:800 clamp(2.9rem,6.6vw,5.8rem)/1.04 var(--f-d);letter-spacing:-.005em}
 .hero .sub{margin-top:22px;max-width:46ch;font-size:1.2rem;color:var(--muted)}
 .ask{display:grid;margin-top:34px;max-width:560px}
 .ask a{display:grid;grid-template-columns:1fr auto;align-items:center;gap:16px;padding:17px 22px;border:2px solid var(--line);background:var(--card);text-decoration:none;margin-top:-2px;transition:background .15s,color .15s}
