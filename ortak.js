@@ -96,10 +96,40 @@
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") kapat(); });
   }
 
+  /* Koyu / açık tema: seçim tarayıcıda saklanır, seçilmediyse cihaz ayarına uyar. */
+  function tema() {
+    var b = q(".tema-btn"), k = document.documentElement;
+    var meta = q('meta[name="theme-color"]');
+    function guncelle() {
+      var koyu = k.dataset.tema === "dark";
+      if (b) {
+        b.setAttribute("aria-pressed", koyu ? "true" : "false");
+        b.setAttribute("aria-label", koyu ? "Açık temaya geç" : "Koyu temaya geç");
+      }
+      if (meta) meta.setAttribute("content", koyu ? "#0A1424" : "#0B5FFF");
+    }
+    guncelle();
+    if (b) b.addEventListener("click", function () {
+      k.dataset.tema = k.dataset.tema === "dark" ? "light" : "dark";
+      try { localStorage.setItem("tema", k.dataset.tema); } catch (e) {}
+      guncelle();
+    });
+    try {
+      var mq = matchMedia("(prefers-color-scheme: dark)");
+      var dinle = function (e) {
+        var kayit = null;
+        try { kayit = localStorage.getItem("tema"); } catch (x) {}
+        if (!kayit) { k.dataset.tema = e.matches ? "dark" : "light"; guncelle(); }
+      };
+      if (mq.addEventListener) mq.addEventListener("change", dinle);
+    } catch (e) {}
+  }
+
   window.DORUK = { ist: ist, dk: dkOf, durum: durum, telHam: telHam, TZ: TZ, GUN: GUN };
 
   bagla();
   durumYaz();
   menu();
+  tema();
   setInterval(durumYaz, 60000);
 })();

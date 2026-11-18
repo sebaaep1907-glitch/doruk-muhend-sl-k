@@ -10,14 +10,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="/stil.css">
+<script>(function(){try{var t=localStorage.getItem("tema");if(t!=="dark"&&t!=="light")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.tema=t}catch(e){}})()</script>
 </head>
 <body>
 <header class="hd">
   <div class="wrap">
     <a class="logo" href="/" aria-label="Doruk Mühendislik ana sayfa">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" fill="#FFD21F"/><path d="M9 25V7h6.5a9 9 0 0 1 0 18Z" fill="none" stroke="#1C2124" stroke-width="3.6"/></svg>
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect class="lg-bg" width="32" height="32"/><path class="lg-d" d="M9 25V7h6.5a9 9 0 0 1 0 18Z" fill="none" stroke-width="3.6"/></svg>
       <span><b>DORUK</b><small>Mühendislik</small></span>
     </a>
+    <div class="hd-r"><button class="tema-btn" type="button" aria-pressed="false" aria-label="Koyu temaya geç"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></svg></button></div>
   </div>
 </header>
 <main>
@@ -27,5 +29,7 @@
     <div class="acts"><a class="btn btn-k" href="/">Ana sayfaya dön</a><a class="btn btn-o" href="/talep.html">Talep oluştur</a></div>
   </div>
 </main>
+<script src="/ayar.js"></script>
+<script src="/ortak.js"></script>
 </body>
 </html>
